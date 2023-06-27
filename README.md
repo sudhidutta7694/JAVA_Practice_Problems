@@ -1,2 +1,2 @@
 # JAVA_Practice_Problems
-This repositiry consists of some important java practice problems
+This repository consists of some important java practice problems
