@@ -63,32 +63,63 @@
 //         return count;
 //     }
 // }
+import java.util.*;
+
+public class Codechef {
+    public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+		Scanner scan = new Scanner(System.in);
+		int t = scan.nextInt();
+		scan.nextLine();
+		while (t>0) {
+		    String[] arrStr = scan.nextLine().split(" ");
+            int[] arr = new int[arrStr.length];
+            for (int i = 0; i < arrStr.length; i++) {
+                arr[i] = Integer.parseInt(arrStr[i]);
+            }
+            String[] QStr = scan.nextLine().split(" ");
+            int[] Q = new int[arr[1]];
+            for (int i = 0; i < arr[1]; i++) {
+                Q[i] = Integer.parseInt(QStr[i]);
+            }
+            int[] S = new int[arr[0]];
+            for (int i=0; i<arr[0]; i++) {
+                arr[i] = (i+1);
+            }int cost = 0;
+            for (int i=0; i<S.length; i++) {
+                int target = S[i];
+                if (!binarySearch(Q, target)) cost+=target; 
+            }
+            System.out.println(cost);
+		    t--;
+		}scan.close();
+	}
+	
+	static boolean binarySearch(int[] Q, int t) {
+	    int start = 0;
+	    int end = Q.length -1;
+	    boolean found = false;
+	    while (start <= end) {
+	        int mid = start + (end-start)/2;
+	        if (t == Q[mid]){ 
+	            found = true;
+	            break;
+	        }else if (t < Q[mid]) end = mid-1;
+	        else start = mid + 1;
+	    }return found;
+	}
+}
+
+/* package codechef; // don't place package name! */
+
 // import java.util.*;
+// import java.lang.*;
+// import java.io.*;
 
-// public class Codechef {
-//     public static void main(String[] args) {
-//         Scanner input = new Scanner(System.in);
-//         int n = input.nextInt();
-//         input.nextLine(); // Consume the remaining newline character
-
-//         Deque<String> programs = new ArrayDeque<>();
-
-//         for (int i = 0; i < n; i++) {
-//             String program = input.nextLine().trim();
-//             if (!programs.contains(program)) {
-//                 programs.addFirst(program.substring(program.length() - 2));
-//             }
-//         }
-
-//         StringBuilder output = new StringBuilder();
-//         for (String program : programs) {
-//             if (output.indexOf(program) == -1) {
-//                 output.append(program);
-//             }
-//         }
-
-//         System.out.println(output.toString());
-//         input.close();
-//     }
+// /* Name of the class has to be "Main" only if the class is public. */
+// class Codechef
+// {
+	
 // }
 
